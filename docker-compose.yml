@@ -1,0 +1,39 @@
+version: "3"
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    ports:
+      - "8085:8080"
+      - "50000:50000"
+    networks:
+      - ourPPPDockerNetwork
+    volumes:
+      - /var/lib/docker/volumes/jenkins_home/_data:/var/jenkins_home
+      - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - mysqldb
+    restart: always
+ 
+  mysqldb:
+    image: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - ourPPPDockerNetwork
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bookstore
+      - MYSQL_USER=ayadinouDB
+      - MYSQL_PASSWORD=ayadinou1601
+
+    volumes:
+      - /var/lib/docker/volumes/mysql-volume/_data:/var/lib/mysql
+      - ./script.sql:/docker-entrypoint-initdb.d/schema.sql
+
+    restart: always
+
+networks:
+  ourPPPDockerNetwork: 
+
