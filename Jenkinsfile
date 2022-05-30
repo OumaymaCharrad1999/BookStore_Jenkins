@@ -13,7 +13,7 @@ pipeline {
                     gv = load "script.groovy"
                 }
             }
-        
+        }
         stage('increment version') {
             steps {
                 script {
