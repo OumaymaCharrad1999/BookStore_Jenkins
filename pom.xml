@@ -13,7 +13,7 @@
 	
 	<groupId>web</groupId>
 	<artifactId>bookstore</artifactId>
-	<version>1.1.0</version>
+	<version>2.5.6-3</version>
 	<packaging>jar</packaging>
 	<name>bookstore</name>
 	<description>BookStore Spring Boot Web Application</description>
