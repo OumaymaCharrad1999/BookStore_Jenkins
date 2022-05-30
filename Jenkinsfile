@@ -70,7 +70,7 @@ pipeline {
                         //sh 'git push --set-upstream https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git ${IMAGE_NAME}'
                         //sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
                         //sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
-                        sh 'git push origin HEAD:${IMAGE_NAME}'
+                        sh 'git push origin HEAD:sss'
                     }
                 }
             }
