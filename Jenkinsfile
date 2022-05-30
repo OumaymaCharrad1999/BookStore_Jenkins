@@ -64,7 +64,7 @@ pipeline {
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
                         sh 'git checkout -b ${IMAGE_NAME}'
-                        sh git branch -M ${IMAGE_NAME}
+                        sh 'git branch -M ${IMAGE_NAME}'
 
                         sh 'git push origin ${IMAGE_NAME}'
                     }
