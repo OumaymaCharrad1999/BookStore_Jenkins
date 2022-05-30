@@ -66,7 +66,7 @@ pipeline {
                         sh 'git checkout -B ${IMAGE_NAME}'
                         sh 'git branch -M ${IMAGE_NAME}'
 
-                        sh 'git push origin ${IMAGE_NAME}'
+                        sh 'git push '
                     }
                 }
             }
