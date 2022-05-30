@@ -66,6 +66,7 @@ pipeline {
                         sh 'git checkout -B ${IMAGE_NAME}'
                         //sh 'git branch -M ${IMAGE_NAME}'
                         //sh 'git push --set-upstream https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git ${IMAGE_NAME}'
+                        sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
                         sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
                     }
                 }
