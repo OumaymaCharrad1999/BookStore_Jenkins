@@ -13,7 +13,7 @@
 	
 	<groupId>web</groupId>
 	<artifactId>bookstore</artifactId>
-	<version>1.1.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>bookstore</name>
 	<description>BookStore Spring Boot Web Application</description>
@@ -76,11 +76,6 @@
 			<version>2.3.9</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-		
 	</dependencies>
 
 	<build>
@@ -106,6 +101,9 @@
 					<execution>
 						<id>default-jar</id>
 						<phase>prepare-package</phase>
+						<configuration>
+							<failOnMissingWebXml>false</failOnMissingWebXml>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
