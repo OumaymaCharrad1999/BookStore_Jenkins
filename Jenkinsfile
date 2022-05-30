@@ -63,7 +63,7 @@ pipeline {
                         sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
-                        sh 'git checkout -b -m ${IMAGE_NAME}'
+                        sh 'git checkout -b ${IMAGE_NAME}'
 
                         sh 'git push origin HEAD:development'
                     }
