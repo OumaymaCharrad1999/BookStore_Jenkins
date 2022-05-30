@@ -4,6 +4,13 @@
 	
 	<modelVersion>4.0.0</modelVersion>
 	
+	<groupId>web</groupId>
+	<artifactId>bookstore</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>bookstore</name>
+	<description>BookStore Spring Boot Web Application</description>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -11,12 +18,6 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
-	<groupId>web</groupId>
-	<artifactId>bookstore</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>bookstore</name>
-	<description>BookStore Spring Boot Web Application</description>
 	
 	<properties>
 		<java.version>1.8</java.version>
