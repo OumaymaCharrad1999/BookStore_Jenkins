@@ -57,8 +57,8 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'gitlab-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                         // git config here for the first time run
-                        sh 'git config --global user.email "jenkins@example.com"'
-                        sh 'git config --global user.name "jenkins"'
+                        sh 'git config --global user.email "ayadi.01.mohamed@gmail.com"'
+                        sh 'git config --global user.name "ayadi.01.mohamed"'
 
                         sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
                         sh 'git add .'
