@@ -64,8 +64,8 @@ pipeline {
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
                         sh 'git checkout -B ${IMAGE_NAME}'
-                        sh 'git branch -M ${IMAGE_NAME}'
-                        sh 'git push --set-upstream origin ${IMAGE_NAME}'
+                        //sh 'git branch -M ${IMAGE_NAME}'
+                        sh 'git push --set-upstream https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git ${IMAGE_NAME}'
                         sh 'git push '
                     }
                 }
