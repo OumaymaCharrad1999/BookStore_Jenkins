@@ -5,10 +5,10 @@ def buildJar() {
 
 def buildImage() {
     echo "building the docker image..."
-    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+    withCredentials([usernamePassword(credentialsId: 'NexusCredentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         sh 'docker build -t ayadinou/maven-build-repo::${IMAGE_NAME}.'
-        sh "echo $PASS | docker login -u $USER --password-stdin"
-        sh 'docker push ayadinou/maven-build-repo::${IMAGE_NAME}'
+        sh "echo $PASS | docker login http://20.224.230.246:8083/repository/docker-hosted/"
+        sh 'docker push http://20.224.230.246:8083/repository/docker-hosted/'
     }
 }
 
