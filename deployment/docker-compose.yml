@@ -31,19 +31,6 @@ services:
       - ourPPPDockerNetwork
     depends_on:
       - bookstorepipeline_mysqldb_1 
-  #mysqldb:
-  #  image: mysql
-  #  networks:
-   #   - deploymentNetwork
-   # ports:
-   #   - "3307:3306"
-   # environment:
-    #  - MYSQL_ROOT_PASSWORD=root
-     # - MYSQL_DATABASE=bookstore
-     # - MYSQL_USER=ayadinouDB
-     # - MYSQL_PASSWORD=ayadinou1601
-
-    #restart: always
-
+  
 networks:
   deploymentNetwork: 
