@@ -54,14 +54,17 @@ pipeline {
                         sh 'git status'
                         sh 'git branch'
                         sh 'git config --list'
+                       
                         //sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
+                        sh 'git switch development'
                         sh 'git add .'
+                       
                         sh 'git commit -am "ci: version bump"'
                         sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
 
-                        sh 'git checkout -b ${IMAGE_NAME}'
+                        //sh 'git checkout -b ${IMAGE_NAME}'
                         
-                        sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
+                        //sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
                         //sh 'git push origin HEAD:sss'
                     }
                 }
