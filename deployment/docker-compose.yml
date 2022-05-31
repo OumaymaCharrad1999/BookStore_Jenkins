@@ -22,8 +22,7 @@ services:
       - deploymentNetwork
       - ourPPPDockerNetwork
     restart: always
-    depends_on:
-      -mysqldb
+    
   app2:
     image: ayadinou/bookstore:${IMAGE_NAME}
     ports:
@@ -32,8 +31,8 @@ services:
       -deploymentNetworkBrdiged
       - deploymentNetwork
       - ourPPPDockerNetwork
-    depends_on:
-      - mysqldb 
+    restart: always
+
   
 networks:
   deploymentNetwork: 
