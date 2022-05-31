@@ -18,19 +18,20 @@ services:
       - "5001:8080"
     networks:
       - deploymentNetwork
-      - ourPPPDockerNetwork
+      #- ourPPPDockerNetwork
     restart: always
     depends_on:
-      - bookstorepipeline_mysqldb_1
+      -mysqldb
   app2:
     image: ayadinou/bookstore:${IMAGE_NAME}
     ports:
       - "5002:8080"
     networks:
       - deploymentNetwork
-      - ourPPPDockerNetwork
+      #- ourPPPDockerNetwork
     depends_on:
-      - bookstorepipeline_mysqldb_1 
+      - mysqldb 
   
 networks:
   deploymentNetwork: 
+      external: true
