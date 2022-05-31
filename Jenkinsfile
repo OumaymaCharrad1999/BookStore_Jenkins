@@ -28,30 +28,23 @@ pipeline {
             }
         }
     
-        stage('build app') {
+        stage('Build App') {
             steps {
                 script {
-                    echo "building jar"
+                    echo "Building jar File"
                     gv.buildJar()
                 }
             }
         }
-        stage('build image') {
+        stage('Build Image') {
             steps {
                 script {
-                     echo "building image"
-                    gv.buildImage()
+                     echo "Building Image"
+                     gv.buildImage()
                 }
             }
         }
-        stage('deploy') {
-            steps {
-                script {
-                    echo 'deploying the application...'
-                }
-            }
-        }
-        stage('commit version update') {
+        stage('Commit Version Update') {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'gitlabCredentals', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
@@ -61,19 +54,28 @@ pipeline {
                         sh 'git status'
                         sh 'git branch'
                         sh 'git config --list'
-                        sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
-                        sh 'git add .'
-                        sh 'git commit -m "ci: version bump"'
-                        //sh 'git checkout -B ${IMAGE_NAME}'
-                        //sh 'git branch -M ${IMAGE_NAME}'
-                        //sh 'git push --set-upstream https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git ${IMAGE_NAME}'
                         //sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
-                        //sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
-                        sh 'git push origin HEAD:sss'
+                        sh 'git add .'
+                        sh 'git commit -am "ci: version bump"'
+                        sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
+
+                        sh 'git checkout -b ${IMAGE_NAME}'
+                        
+                        sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
+                        //sh 'git push origin HEAD:sss'
                     }
                 }
             }
         }
+
+         stage('Deploy') {
+            steps {
+                script {
+                    echo 'Deploying the Application...'
+                }
+            }
+        }
+       
     }
 }
 
