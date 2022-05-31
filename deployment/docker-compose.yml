@@ -18,6 +18,7 @@ services:
       - "5001:8080"
     networks:
       - deploymentNetwork
+      - ourPPPDockerNetwork
     restart: always
     depends_on:
       - mysqldb
@@ -27,21 +28,22 @@ services:
       - "5002:8080"
     networks:
       - deploymentNetwork
+      - ourPPPDockerNetwork
     depends_on:
       - mysqldb 
-  mysqldb:
-    image: mysql
-    networks:
-      - deploymentNetwork
-    ports:
-      - "3307:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=bookstore
-      - MYSQL_USER=ayadinouDB
-      - MYSQL_PASSWORD=ayadinou1601
+  #mysqldb:
+  #  image: mysql
+  #  networks:
+   #   - deploymentNetwork
+   # ports:
+   #   - "3307:3306"
+   # environment:
+    #  - MYSQL_ROOT_PASSWORD=root
+     # - MYSQL_DATABASE=bookstore
+     # - MYSQL_USER=ayadinouDB
+     # - MYSQL_PASSWORD=ayadinou1601
 
-    restart: always
+    #restart: always
 
 networks:
   deploymentNetwork: 
