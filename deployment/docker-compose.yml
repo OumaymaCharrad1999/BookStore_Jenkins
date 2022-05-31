@@ -18,6 +18,8 @@ services:
       - "5001:8080"
     networks:
       - deploymentNetwork
+    depends_on:
+      - mysqldb
     restart: always
     
   app2:
@@ -26,6 +28,8 @@ services:
       - "5002:8080"
     networks:
       - deploymentNetwork
+    depends_on:
+      - mysqldb
     restart: always
 
   mysqldb:
