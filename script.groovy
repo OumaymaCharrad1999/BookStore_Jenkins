@@ -20,8 +20,8 @@ def deployApp() {
     sh 'cd deployment'
     sh 'echo "IMAGE_NAME=${IMAGE_NAME}">.env'
     sh 'cd ..'
-    sh 'sshpass -p \"PPPdevops2022!\" scp -r ./deployment/ deployuser@20.232.192.220:/home/deployuser/Bookstore/'
-    sh 'sshpass -p \"PPPdevops2022!\" ssh deployuser@20.232.192.220 \"cd /home/deployuser/Bookstore/deployment && docker-compose up\"'
+    sh 'sshpass -p \"PPPdevops2022!\" scp -r ./deployment/ deployuser@20.25.104.120:/home/deployuser/Bookstore/'
+    sh 'sshpass -p \"PPPdevops2022!\" ssh deployuser@20.25.104.120 \"cd /home/deployuser/Bookstore/deployment && docker-compose up\"'
 }
 
 
