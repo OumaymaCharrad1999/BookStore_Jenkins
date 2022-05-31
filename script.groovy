@@ -16,6 +16,9 @@ def buildImage() {
 
 def deployApp() {
     echo 'Deploying the Application...'
+    sh 'cd deployment'
+    sh 'echo "INAGE_NAME=${IMAGE_NAME}">.env'
+    sh 'docker compose up'
 }
 
 
