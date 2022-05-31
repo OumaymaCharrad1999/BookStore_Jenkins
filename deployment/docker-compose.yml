@@ -18,7 +18,7 @@ services:
       - "5001:8080"
     networks:
       - deploymentNetwork
-      #- ourPPPDockerNetwork
+      - ourPPPDockerNetwork
     restart: always
     depends_on:
       -mysqldb
@@ -28,10 +28,13 @@ services:
       - "5002:8080"
     networks:
       - deploymentNetwork
-      #- ourPPPDockerNetwork
+      - ourPPPDockerNetwork
     depends_on:
       - mysqldb 
   
 networks:
   deploymentNetwork: 
-      external: true
+      driver: custom-driver-1
+
+  ourPPPDockerNetwork: 
+      driver: custom-driver-1
