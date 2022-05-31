@@ -7,14 +7,14 @@ pipeline {
         maven 'maven'
     }
     stages {
-        stage("init") {
+        stage("Initialization") {
             steps {
                 script {
                     gv = load "script.groovy"
                 }
             }
         }
-        stage('increment version') {
+        stage('Increment Version') {
             steps {
                 script {
                     echo 'incrementing app version...'
@@ -33,7 +33,6 @@ pipeline {
                 script {
                     echo "building jar"
                     gv.buildJar()
-                    sh 'mvn clean package'
                 }
             }
         }
