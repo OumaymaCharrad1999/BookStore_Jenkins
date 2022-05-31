@@ -1,0 +1,45 @@
+version: "3"
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "8080:8080"
+    networks:
+      - ourPPPDockerNetwork    
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app1
+      - app2
+    restart: always  
+  app1:
+    image: ayadinou/bookstore:${IMAGE_NAME}
+    ports:
+      - "5001:8080"
+    networks:
+      - ourPPPDockerNetwork
+    restart: always
+    depends_on:
+      - mysqldb
+  app2:
+    image: ayadinou/bookstore:${IMAGE_NAME}
+    ports:
+      - "5002:8080"
+    networks:
+      - ourPPPDockerNetwork
+    depends_on:
+      - mysqldb 
+  mysqldb:
+    image: mysql
+    networks:
+      - ourPPPDockerNetwork
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bookstore
+      - MYSQL_USER=ayadinouDB
+      - MYSQL_PASSWORD=ayadinou1601
+
+    restart: always
+
+networks:
+  ourPPPDockerNetwork: 
