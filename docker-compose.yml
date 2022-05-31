@@ -38,7 +38,7 @@ services:
 
 networks:
   deploymentNetwork: 
-      driver: bridge
+      driver: overlay
 
   ourPPPDockerNetwork: 
       driver: bridge
