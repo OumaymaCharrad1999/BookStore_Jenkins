@@ -55,7 +55,8 @@ pipeline {
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
                         sh 'git push origin HEAD:development'
-                        
+                        sh 'git checkout -b ${IMAGE_NAME}'
+                        sh 'git push origin HEAD:${IMAGE_NAME}'
                         //sh 'git status'
                         //sh 'git branch'
                         //sh 'git config --list'
