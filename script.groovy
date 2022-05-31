@@ -1,10 +1,11 @@
 def buildJar() {
-    echo "building the application..."
+    echo "Building the Application..."
     sh 'mvn clean package'
 }
 
+
 def buildImage() {
-    echo "building the docker image..."
+    echo "Building the Docker Image..."
     withCredentials([usernamePassword(credentialsId: 'dockerhubCredentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         sh 'docker build -t ayadinou/bookstore:${IMAGE_NAME} --build-arg BUILD_ID="${IMAGE_NAME}" .'
         sh 'echo $PASS |docker login -u $USER --password-stdin  '
@@ -12,8 +13,10 @@ def buildImage() {
     }
 }
 
+
 def deployApp() {
-    echo 'deploying the application...'
+    echo 'Deploying the Application...'
 }
+
 
 return this

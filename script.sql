@@ -1,9 +1,11 @@
 /*GRANT ALL PRIVILEGES ON DATABASE bookstore TO ayadinouDB;
 #CONNECT TO bookstore USER ayadinouDB PASSWORD;
 */
+
 GO
 USE bookstore
 GO
+
 CREATE TABLE book (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255),
@@ -20,3 +22,4 @@ VALUES
 ('Truesight', 'David Stahler', 'English', 256, 10.99),
 ('Living On Luck', 'Charles Bukowski', 'English', 304, 18.99),
 ('Stardust', 'Neil Gaiman', 'English', 352, 7.99);
+
