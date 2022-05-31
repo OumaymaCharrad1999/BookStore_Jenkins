@@ -58,7 +58,7 @@ pipeline {
                         //sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
                         sh 'git switch development'
                         sh 'git add .'
-                       
+                       sh 'git status'
                         sh 'git commit -am "ci: version bump"'
                         sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
 
