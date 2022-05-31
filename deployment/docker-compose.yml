@@ -5,7 +5,7 @@ services:
     ports:
       - "8080:8080"
     networks:
-      -deploymentNetworkBrdiged
+      - deploymentNetworkBrdiged
       - deploymentNetwork    
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
