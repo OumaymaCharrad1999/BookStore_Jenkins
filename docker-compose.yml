@@ -23,6 +23,7 @@ services:
       - "3306:3306"
     networks:
       - ourPPPDockerNetwork
+      - deploymentNetwork
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=bookstore
@@ -36,5 +37,8 @@ services:
     restart: always
 
 networks:
+  deploymentNetwork: 
+      driver: custom-driver-1
+
   ourPPPDockerNetwork: 
-    driver: bridge
+      driver: custom-driver-1
