@@ -16,9 +16,12 @@ def buildImage() {
 
 def deployApp() {
     echo 'Deploying the Application...'
+    
     sh 'cd deployment'
     sh 'echo "IMAGE_NAME=${IMAGE_NAME}">.env'
-    sh 'docker-compose up'
+    sh 'cd ..'
+    sh 'echo "PPPdevops2022!"| scp -r ./deployment localuser@40.114.225.176:/home/localuser/Bookstore/'
+    sh 'echo "PPPdevops2022"| ssh localuser@40.114.225.176 cd Bookstore && docker-compose up'
 }
 
 
