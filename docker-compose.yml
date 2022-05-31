@@ -38,7 +38,7 @@ services:
 
 networks:
   deploymentNetwork: 
-      driver: custom-driver-1
+      driver: bridge
 
   ourPPPDockerNetwork: 
-      driver: custom-driver-1
+      driver: bridge
