@@ -47,7 +47,7 @@ pipeline {
         stage('Commit Version Update') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'gitlabCredentals', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                    withCredentials([usernamePassword(credentialsId: 'gitlabToken', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                         // git config here for the first time run
                         sh 'git config --global user.email "ayadi.01.mohamed@gmail.com"'
                         sh 'git config --global user.name "ayadi.01.mohamed"'
@@ -58,7 +58,7 @@ pipeline {
                         //sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git"
                         sh 'git switch development'
                         sh 'git add .'
-                       sh 'git status'
+                        sh 'git status'
                         sh 'git commit -am "ci: version bump"'
                         sh 'git push https://${USER}:${PASS}@gitlab.com:ayadi.01.mohamed/bookstore.git'
 
