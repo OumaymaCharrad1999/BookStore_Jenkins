@@ -18,7 +18,7 @@ services:
     ports:
       - "5001:8080"
     networks:
-      -deploymentNetworkBrdiged
+      - deploymentNetworkBrdiged
       - deploymentNetwork
       - ourPPPDockerNetwork
     restart: always
@@ -28,7 +28,7 @@ services:
     ports:
       - "5002:8080"
     networks:
-      -deploymentNetworkBrdiged
+      - deploymentNetworkBrdiged
       - deploymentNetwork
       - ourPPPDockerNetwork
     restart: always
