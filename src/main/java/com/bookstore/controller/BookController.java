@@ -30,16 +30,16 @@ public class BookController {
 		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
 	}
 	
-	/*@GetMapping("books/{id}")
+	@GetMapping("books/{id}")
 	public ResponseEntity<Book> getBook(@PathVariable("id") Integer id){
 		Book book = service.getBook(id);
-		return new ResponseEntity<Book>(book, HttpStatus.OK);*/
+		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 	
-	@PostMapping("books")
+	/*@PostMapping("books")
 	public ResponseEntity<Book> createBook(@RequestBody Book book){
 		Book b = service.createBook(book);
-		return new ResponseEntity<Book>(b, HttpStatus.OK);	
+		return new ResponseEntity<Book>(b, HttpStatus.OK);*/
 	}
 	
 	@PutMapping("books/{id}")
