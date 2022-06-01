@@ -47,7 +47,7 @@ public class MemberController {
 		Member m = service.updateMember(id, member);
 		return new ResponseEntity<Member>(m, HttpStatus.OK);
 	}
-	
+	/*
 	@DeleteMapping("members/{id}")
 	public ResponseEntity<String> deleteMember(@PathVariable("id") int id){
 		boolean isDeleted = service.deleteMember(id);
@@ -57,6 +57,6 @@ public class MemberController {
 		}
 		String error = "Error while deleting member from database";
 		return new ResponseEntity<String>(error,HttpStatus.INTERNAL_SERVER_ERROR);
-	}
+	}*/
 
 }
