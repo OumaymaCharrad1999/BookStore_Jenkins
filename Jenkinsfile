@@ -2,6 +2,9 @@
 def gv
 pipeline {
     agent any
+    options{
+        timeout(time: 5, unit:'MINUTES')
+    }
     tools {
         maven 'maven'
     }
