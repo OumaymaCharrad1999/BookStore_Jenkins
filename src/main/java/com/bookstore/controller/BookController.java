@@ -36,10 +36,10 @@ public class BookController {
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 	
-	/*@PostMapping("books")
+	@PostMapping("books")
 	public ResponseEntity<Book> createBook(@RequestBody Book book){
 		Book b = service.createBook(book);
-		return new ResponseEntity<Book>(b, HttpStatus.OK);*/
+		return new ResponseEntity<Book>(b, HttpStatus.OK);
 	}
 	
 	@PutMapping("books/{id}")
@@ -58,5 +58,7 @@ public class BookController {
 		String error = "Error while deleting book from database";
 		return new ResponseEntity<String>(error,HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+	/*Update*/
 
 }
