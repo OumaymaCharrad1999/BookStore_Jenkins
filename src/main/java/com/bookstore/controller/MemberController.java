@@ -58,5 +58,5 @@ public class MemberController {
 		String error = "Error while deleting member from database";
 		return new ResponseEntity<String>(error,HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-//comment here for pushing yeahh
+//we add docker permission
 }
