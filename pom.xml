@@ -6,7 +6,7 @@
 	
 	<groupId>web</groupId>
 	<artifactId>bookstore</artifactId>
-	<version>1.3.0</version>
+	<version>1.3.1</version>
 	<packaging>jar</packaging>
 	<name>bookstore</name>
 	<description>BookStore Spring Boot Web Application</description>
