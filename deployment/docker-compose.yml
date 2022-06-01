@@ -5,7 +5,7 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - deploymentNetwork    
+      - ourPPPDockerNetwork    
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
@@ -17,39 +17,29 @@ services:
     ports:
       - "5001:8080"
     networks:
-      - deploymentNetwork
+      - ourPPPDockerNetwork
+    restart: always
     depends_on:
       - mysqldb
-    restart: always
-    
   app2:
     image: ayadinou/bookstore:${IMAGE_NAME}
     ports:
       - "5002:8080"
     networks:
-      - deploymentNetwork
+      - ourPPPDockerNetwork
     depends_on:
-      - mysqldb
-    restart: always
-
+      - mysqldb 
   mysqldb:
     image: mysql
-    ports:
-      - "3307:3306"
     networks:
-      - deploymentNetwork
+      - ourPPPDockerNetwork
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=bookstore
       - MYSQL_USER=ayadinouDB
       - MYSQL_PASSWORD=ayadinou1601
 
-    volumes:
-      - /var/lib/docker/volumes/mysql-volume/_data:/var/lib/mysql
-      - ./script.sql:/docker-entrypoint-initdb.d/schema.sql
-
     restart: always
 
 networks:
-  deploymentNetwork: 
- 
+  ourPPPDockerNetwork: 
