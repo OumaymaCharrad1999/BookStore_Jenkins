@@ -20,3 +20,18 @@ VALUES
 (2,'Truesight', 'David Stahler', 'English', 256, 10.99),
 (3,'Living On Luck', 'Charles Bukowski', 'English', 304, 18.99),
 (4,'Stardust', 'Neil Gaiman', 'English', 352, 7.99);
+
+
+CREATE TABLE member (
+    id int NOT NULL AUTO_INCREMENT,
+    cin int,
+    nom varchar(45),
+    prenom varchar(45),
+    adresse varchar(45),
+    PRIMARY KEY (id)
+);
+
+INSERT INTO member (id,cin, nom, prenom, adresse) 
+VALUES
+(1,12345678, 'Charrad', 'Oumayma', 'Ariana'),
+(2,01234567, 'Doukali', 'Syrine', 'Tunis');
