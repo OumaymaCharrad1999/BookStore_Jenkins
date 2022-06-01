@@ -27,6 +27,7 @@ services:
       - "5002:8080"
     networks:
       - ourPPPDockerNetwork
+    restart: always
     depends_on:
       - mysqldb 
   mysqldb:
