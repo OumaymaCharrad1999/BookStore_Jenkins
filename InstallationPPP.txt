@@ -1,0 +1,74 @@
+### On the server 1 ###
+
+1) We have to install docker 
+------- If the server has debian package manager follow the commands which mentioned on the following link
+https://docs.docker.com/engine/install/ubuntu/
+
+------- If the server has yum package manager follow the commands which mentioned on the following link
+https://docs.docker.com/engine/install/centos/
+
+2) We have to install docker-compose
+Follow the steps mentioned on the documentation if you have debian package manager
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
+Follow the steps mentioned on the documentation if you have yum package manager
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-centos-7
+
+3) Add your user to the docker group by using the following command
+sudo useradd <username> -aG docker 
+
+4) Start the docker daemon by using the following command
+systemctl start docker 
+
+5) Give the permission to /var/run/docker.sock
+sudo chmod 777 /var/run/docker.sock
+
+6) Run the docker-compose file on directory that contains the docker-compose.yml file
+docker-compose up 
+(The command mentioned above will run the jenkins container on the port 8085 and mysql container on the port 3306 oin the docker network )
+
+7) Check if the containers on the running state 
+docker ps 
+
+8) Execute the bash command to have bash access on the jenkins container as jenkins user by using the following command 
+docker -exec -it <hash of jenkins container> bash 
+ <hash of jenkins container> : you can copy it from the output of docker ps command
+
+9) Do ssh command to create the finger print on the jenkins container 
+ssh deployuser@<ip adress of teh second server>
+
+10) In order ro monitor what happens behind the scenes on the docker compose use the following command on directory that contains the docker-compose.yml file
+docker-compose logs 
+##################################################################################################################################################
+
+
+### On the server 2 ###
+
+1) We have to install docker 
+------- If the server has debian package manager follow the commands which mentioned on the following link
+https://docs.docker.com/engine/install/ubuntu/
+
+------- If the server has yum package manager follow the commands which mentioned on the following link
+https://docs.docker.com/engine/install/centos/
+
+2) We have to install docker-compose
+Follow the steps mentioned on the documentation if you have debian package manager
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
+Follow the steps mentioned on the documentation if you have yum package manager
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-centos-7
+
+3) Add your user to the docker group by using the following command
+sudo useradd <username> -aG docker 
+
+4) Start the docker daemon by using the following command
+systemctl start docker 
+
+5) Give the permission to /var/run/docker.sock
+sudo chmod 777 /var/run/docker.sock
+
+NOW !!!!!
+
+Push a commit to the gitlab to run the pipeline 
+The  pipeline will copy the deployment directory with the latest version that has been built and will run the docker compose file that contains the nginx containers which plays the role of load balancer, the app1 and app2 containers which has the image of the latest version that has been built, and the mysql container 
+
+6) After the running of the pipelin you can monitor what happens behind the scenes on the docker compose by using the following command on the deployment directory.
+docker-compose logs
