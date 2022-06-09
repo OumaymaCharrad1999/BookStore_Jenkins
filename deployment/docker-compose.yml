@@ -12,6 +12,7 @@ services:
       - app1
       - app2
     restart: always  
+
   app1:
     image: ayadinou/bookstore:${IMAGE_NAME}
     ports:
@@ -21,6 +22,7 @@ services:
     restart: always
     depends_on:
       - mysqldb
+
   app2:
     image: ayadinou/bookstore:${IMAGE_NAME}
     ports:
@@ -30,6 +32,7 @@ services:
     restart: always
     depends_on:
       - mysqldb 
+
   mysqldb:
     image: mysql
     networks:
@@ -39,7 +42,6 @@ services:
       - MYSQL_DATABASE=bookstore
       - MYSQL_USER=ayadinouDB
       - MYSQL_PASSWORD=ayadinou1601
-
     restart: always
 
 networks:
