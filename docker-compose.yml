@@ -28,7 +28,6 @@ services:
       - MYSQL_DATABASE=bookstore
       - MYSQL_USER=ayadinouDB
       - MYSQL_PASSWORD=ayadinou1601
-
     volumes:
       - /var/lib/docker/volumes/mysql-volume/_data:/var/lib/mysql
       - ./script.sql:/docker-entrypoint-initdb.d/schema.sql
