@@ -4,6 +4,7 @@
 GO
 USE bookstore
 GO
+
 CREATE TABLE book (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255),
