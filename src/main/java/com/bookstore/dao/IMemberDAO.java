@@ -1,7 +1,6 @@
 package com.bookstore.dao;
 
 import java.util.List;
-
 import com.bookstore.entity.Member;
 
 public interface IMemberDAO {
